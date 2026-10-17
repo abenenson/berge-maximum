@@ -1,0 +1,18 @@
+{
+  "copyright_holder": "Adam Benenson",
+  "declared_source_license": "Apache-2.0",
+  "provenance_scope": "Only the listed generic mathematical files. No license is inferred for any surrounding private repository.",
+  "license_text_source": "https://github.com/abenenson/cencov-petz/blob/f6cf035a4c2882ae1fbc0a83416ab8142aceb676/LICENSE",
+  "files": [
+    {
+      "source_file": "Topology/BergeMaximum.lean",
+      "original_sha256": "965ba30ab8b1c7faecc85a0778d928d30762cac11821f5e662e7cfddaa62fca8",
+      "source_commit": "6e1f249d1d5f21495192a0775ec5c2aa3ecde233",
+      "extracted_file": "BergeMaximum/Semicontinuity.lean",
+      "license": "Apache-2.0",
+      "copyright": "2026 Adam Benenson",
+      "transformation": "Package import and namespace changes only; expose the previously private graph helper with its definition unchanged; normalize trailing blank line",
+      "extracted_sha256": "99b2845dee289e00153e63acc88a1800e2c71756d842dbfc3c2dfb3500c10276"
+    }
+  ]
+}
