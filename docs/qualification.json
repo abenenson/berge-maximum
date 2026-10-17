@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "recorded_utc": "2026-10-17T19:17:45.994340+00:00",
+  "qualified_code_commit": "2ff1b9c0caac3c967265b1ef05fb604b3a338a3d",
+  "compiler": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "dependency_revisions": {
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+  },
+  "authored_source_sha256": {
+    "BergeMaximum/Semicontinuity.lean": "99b2845dee289e00153e63acc88a1800e2c71756d842dbfc3c2dfb3500c10276",
+    "BergeMaximum.lean": "5f9bf2e42e3f676b76b858ca5e31cd5527f83be2d81569e4b221137b146f7015",
+    "BergeMaximumExamples/Basic.lean": "df4e0d64d62caaa384a44b8b8fd3468936e5b31aeabba9046d9fbf275bb66403",
+    "BergeMaximumExamples.lean": "56ebf883c16345f84eccb77878e7167996ac5f80c1c22913401061de5514f565"
+  },
+  "verification_program_sha256": "2dd6e831131e22a827ea3a85b6f8536443cbe55d79b53c78be610a55e48a37a8",
+  "verification_manifest_sha256": "529a23181d7f406ed5ec152b3a772c8f76e535962f3f49d32f5894c17bf17c65",
+  "authored_module_count": 4,
+  "named_declaration_count": 7,
+  "full_linter_count": 16,
+  "named_transitive_axioms": {
+    "BergeMaximum.graph": [],
+    "BergeMaximum.upperSemicontinuous_sSup_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.lowerSemicontinuous_sInf_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.Decision": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.quadratic_minimum_lsc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.quadratic_maximum_usc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.empty_decisions_fail_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "warning_policy": "Warnings and errors are fatal. Every authored source is separately re-elaborated with all16linters.",
+  "clean_build_scope": {
+    "committed_clean_clone": true,
+    "initial_authored_build_artifacts_absent": true,
+    "public_dependency_build_cache_reused": true,
+    "full_dependency_rebuild_claimed": false,
+    "final_run_reused_authored_build_cache": false,
+    "finite_repeat_reason": null
+  },
+  "stages": [
+    {
+      "name": "compiler-version",
+      "exit_code": 0
+    },
+    {
+      "name": "exact-build",
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximum-Semicontinuity.lean",
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximum.lean",
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximumExamples-Basic.lean",
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximumExamples.lean",
+      "exit_code": 0
+    },
+    {
+      "name": "axioms",
+      "exit_code": 0
+    }
+  ],
+  "independent_internal_review": {
+    "verdict": "GO",
+    "scope": "Exact qualified code commit and complete package boundary, source/provenance, verifier rejection tests and native qualification receipts",
+    "sealed_receipt_sha256": "ae9c3136e59cf68d91b7fdc8adf377e7c0ef232c5d6eaeb714b2ded54f2d1b36",
+    "external_specialist_review_claimed": false
+  },
+  "combined_consumer": {
+    "status": "passed",
+    "scope": "All three public roots and opt-in example roots import together; three meaningful APIs elaborate with standard axioms only",
+    "receipt_sha256": "82918a6c7cfede00c7e495c594a0bda441c4fd052b0276755d82bc0049c5a1b1"
+  },
+  "resource_observations": {
+    "sampled_peak_tree_rss_bytes": 2307760128,
+    "memory_ceiling_bytes": 17179869184,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "surviving_non_zombie_pids": []
+  },
+  "logs": {
+    "directory": "qualification-logs",
+    "representation": "Diagnostic qualification/checkout absolute paths replaced by symbolic placeholders; original byte hashes below refer to preserved raw receipts",
+    "raw_sha256": {
+      "axioms.log": "9e4f9853ec741d8b8a3ffd1294dc64babd81e2a2d8402b48183c46af0d57d489",
+      "compiler-version.log": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+      "exact-build.log": "80b5ecb7fef8d477d0d0aeab89c5bffa7fce291e6f809a9f63b6ddcd1dfbf331",
+      "lint-BergeMaximum-Semicontinuity.lean.log": "ec645dfb23bd7112c7c07206dc785ff3107d0065cb637b1af77e355fcc4f35f6",
+      "lint-BergeMaximum.lean.log": "4f087cb98bea691bae8bd444187fbce34b4ff6b7ef9a4681e2c710ee252ddf93",
+      "lint-BergeMaximumExamples-Basic.lean.log": "542560814e3608e535eac61449833db60948fb73d153f719e7eef226ebe0bc0d",
+      "lint-BergeMaximumExamples.lean.log": "6b6bf5326c92d511e89996f68701d27c99d7348e0ffe5b69bdb2d9196f2a41b2",
+      "qualification.json": "dbf4f6b2f337a9553044e90a5a49932ebc942bfd8b030a90401874760f3f1896"
+    }
+  },
+  "hosted_ci": {
+    "status": "not_executed",
+    "reason": "No remote repository created: GitHub private-repository creation request denied HTTP403 Resource not accessible by integration. Local results are not hosted CI receipts."
+  },
+  "release_status": "Local private preparation; no hosted visibility, public release or remote push claimed"
+}
