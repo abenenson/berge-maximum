@@ -1,0 +1,61 @@
+{
+  "root_module": "BergeMaximum",
+  "source_files": [
+    "BergeMaximum/Semicontinuity.lean",
+    "BergeMaximum.lean",
+    "BergeMaximumExamples/Basic.lean",
+    "BergeMaximumExamples.lean"
+  ],
+  "audit_imports": [
+    "BergeMaximum",
+    "BergeMaximumExamples"
+  ],
+  "declarations": [
+    "BergeMaximum.graph",
+    "BergeMaximum.upperSemicontinuous_sSup_image_of_isClosed_graph",
+    "BergeMaximum.lowerSemicontinuous_sInf_image_of_isClosed_graph",
+    "BergeMaximum.Examples.Decision",
+    "BergeMaximum.Examples.quadratic_minimum_lsc",
+    "BergeMaximum.Examples.quadratic_maximum_usc",
+    "BergeMaximum.Examples.empty_decisions_fail_nonempty"
+  ],
+  "examples_module": "BergeMaximumExamples",
+  "public_dependencies": {
+    "mathlib": {
+      "rev": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+      "url": "https://github.com/leanprover-community/mathlib4"
+    },
+    "plausible": {
+      "rev": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+      "url": "https://github.com/leanprover-community/plausible"
+    },
+    "LeanSearchClient": {
+      "rev": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+      "url": "https://github.com/leanprover-community/LeanSearchClient"
+    },
+    "importGraph": {
+      "rev": "e928b72544873815af278d38681b31c0293588e3",
+      "url": "https://github.com/leanprover-community/import-graph"
+    },
+    "proofwidgets": {
+      "rev": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+      "url": "https://github.com/leanprover-community/ProofWidgets4"
+    },
+    "aesop": {
+      "rev": "355695d523e41d0554926416cba2a2b3544fbbc9",
+      "url": "https://github.com/leanprover-community/aesop"
+    },
+    "Qq": {
+      "rev": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+      "url": "https://github.com/leanprover-community/quote4"
+    },
+    "batteries": {
+      "rev": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+      "url": "https://github.com/leanprover-community/batteries"
+    },
+    "Cli": {
+      "rev": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+      "url": "https://github.com/leanprover/lean4-cli"
+    }
+  }
+}
