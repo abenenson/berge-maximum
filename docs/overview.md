@@ -1,21 +1,17 @@
-# Compact-codomain Berge semicontinuity
+# Compact-ambient Berge maximum theorem
 
-Berge-type semicontinuity lemmas for feasible correspondences with a closed graph
-and nonempty closed values in a compact ambient decision space.
-
-A jointly upper-semicontinuous integrand gives an upper-semicontinuous supremum
-value; the lower-semicontinuous analogue gives lower-semicontinuous infimum value.
-The value codomain is a conditionally complete linear order, with the additional
-topological/order hypotheses shown in each theorem signature.
-
-This is a compact-ambient-codomain result. It is not the unrestricted Berge maximum
-theorem, a lower-hemicontinuity theorem, a general optimizer-selection theorem, or a
-claim that closed graph alone yields continuous maximum values. The public `graph`
-helper names the same feasible-pair set used by the theorems.
+The public package now proves continuous maximum/minimum values and nonempty compact,
+upper hemicontinuous argmax correspondences, under the hypotheses stated in the
+[README](../README.md). The full theorem adds lower hemicontinuity and joint continuity to
+the closed-graph, nonempty-value, compact-ambient hypotheses of the one-sided result.
+Closed fibers are derived from closed graph. The one-sided theorem retains its broader
+conditionally complete linear-order value type, without a topological-space hypothesis on
+that value type. The full theorem uses the order topology.
 
 ## Organization
 
-- `Semicontinuity`: the correspondence graph and the two value-semicontinuity theorems.
+- `Semicontinuity`: the correspondence graph and dual value-semicontinuity theorems.
+- `Maximum`: continuous values, closed fibers, and nonempty compact upper hemicontinuous argmax.
 
 The top-level import exports the mathematical modules. `BergeMaximumExamples` is a separate
 library target: it is built by the default build but is not imported by the public
@@ -71,3 +67,28 @@ per-file Apache notices and ORIGIN hashes. Its additional implemented gates are 
 builds, all16 source linters, the explicit transitive axiom ledger, durable verifier rejection
 controls and always-retained CI evidence configuration. No precedent was modified or requalified.
 The supported pair remains Lean4.34.1/d13f23b; earlier-pair compatibility is not inferred.
+
+## Historical extraction and qualification
+
+`ORIGIN.json` records the original extraction of `Topology/BergeMaximum.lean` into
+`BergeMaximum/Semicontinuity.lean`. Its transformations and SHA-256 values describe that
+historical extraction, not the current source after subsequent proof refactoring. The new
+`BergeMaximum/Maximum.lean` and expanded examples are subsequent development under the same
+per-file authorship and Apache 2.0 notices. The original extraction identities are retained.
+
+`qualification.json` and `qualification-logs/` contain the historical October 17 run.
+`private-release-qualification.json`, when present, describes the later private qualification
+at its stated source identity. Neither historical receipt qualifies subsequent edits.
+The current verifier writes a fresh evidence directory per invocation and retains failures.
+
+The verifier rejects native panics, malformed/error JSON even on exit zero, unsupported import
+headers, optimized Python that disables assertions, proof holes, and custom axioms. Its seven
+regression controls run with:
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_*.py'
+```
+
+The full current check remains `python3 scripts/verify.py`. CI configuration retains evidence
+using a pinned upload action; a configured workflow is not a hosted execution result. No public
+release or automatic upstream submission is part of this package preparation.

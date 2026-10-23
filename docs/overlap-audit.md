@@ -1,22 +1,43 @@
-# Dependency overlap and private inspection scope
+# Mathlib overlap and theorem boundary
 
-Source audit date: 2026-10-22. The packaged result is classical compact-ambient-codomain Berge-type
-semicontinuity. It is not a claim of new mathematics or an unrestricted maximum theorem.
+Source comparison refreshed 2026-10-23 against the **actual pinned dependency**:
+Mathlib `d13f23b723b8a846827a245b89c10fc7d3f11612`, Lean 4.34.1.
 
-Current Mathlib at `6ea173996caaa665b0a3c4f81ce472e04e4f7754` has extensive
-[semicontinuity](https://github.com/leanprover-community/mathlib4/blob/6ea173996caaa665b0a3c4f81ce472e04e4f7754/Mathlib/Topology/Semicontinuity/Basic.lean)
-and [hemicontinuity](https://github.com/leanprover-community/mathlib4/blob/6ea173996caaa665b0a3c4f81ce472e04e4f7754/Mathlib/Topology/Semicontinuity/Hemicontinuity.lean)
-APIs, including `isClosedMap_iff_upperHemicontinuous` and neighborhood characterizations of
-correspondences. The present proof uses compactness and closed projections to establish its
-specific supremum/infimum value semicontinuity statements. Its explicit nonempty closed values,
-closed graph, compact ambient decision space and order/topological hypotheses remain in force.
+## Existing results used
 
-A current Mathlib filename search found no dedicated Berge-named module, and the selected
-semicontinuity/hemicontinuity sources did not expose this exact named theorem. That bounded
-search does not establish absence of an equivalent theorem elsewhere. A future upstream
-proposal would need a full API comparison and discussion of a formulation through existing
-hemicontinuity/proper-map APIs; neither readiness nor acceptance is claimed.
+- `Mathlib.Topology.Order.Compact` already proves `IsCompact.continuous_sSup` and
+  `IsCompact.continuous_sInf` for a **fixed** compact feasible set and jointly continuous
+  objective. This package does not present that special case as missing from Mathlib.
+- `Mathlib.Topology.Semicontinuity.Basic` supplies attainment of extrema for semicontinuous
+  objectives on nonempty compact sets, and the open/closed level-set characterizations.
+- `Mathlib.Topology.Semicontinuity.Hemicontinuity` supplies the standard `LowerHemicontinuous`
+  and `UpperHemicontinuous` predicates, their open-inverse characterizations, and
+  `LowerHemicontinuous.inter_hasOpenCGraph`.
+- `isClosedMap_fst_of_compactSpace` supplies the closed projection used in the upper value
+  bound and in upper hemicontinuity of closed-graph correspondences.
 
-The newer Mathlib sources were inspected, not compiled with this package. Native compatibility
-is qualified only on its locked d13f23b/Lean4.34.1 pair. No external submission or public release
-is included in private preparation.
+## Package contribution
+
+`BergeMaximum.Maximum` combines those APIs for **varying** feasible correspondences:
+closed graph, nonempty values, compact ambient decision space, lower hemicontinuity, and
+joint continuity yield continuous maximum values and nonempty compact upper hemicontinuous
+argmax correspondences. The infimum result is derived by order duality. Lower
+hemicontinuity of the value follows by intersecting feasibility with the open strict
+superlevel graph and applying Mathlib's lower hemicontinuity theorem. Upper hemicontinuity
+of argmax follows from its closed graph and compact ambient space. Closed fibers are
+derived rather than assumed separately. The examples include genuinely varying feasible
+sets and a change in the maximizing branch.
+
+These are classical mathematical results. The contribution is this scoped formal API and
+its integration with pinned Mathlib, not a claim of new mathematics. A bounded filename and
+source search of the pinned topology modules found no dedicated Berge theorem for varying
+correspondences; it does not prove that no equivalent formulation exists anywhere in Mathlib.
+The package does not cover the full noncompact-ambient compact-valued theorem, nor assert
+continuous optimizer selections or upstream acceptance.
+
+## Historical comparison
+
+The earlier 2026-10-22 inspection also read newer Mathlib sources at
+`6ea173996caaa665b0a3c4f81ce472e04e4f7754`. That was source inspection only, not a native
+compatibility result. Its semicontinuity-only package description is superseded by the
+maximum-theorem module. Native support remains limited to the pinned pair above.

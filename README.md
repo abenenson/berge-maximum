@@ -1,33 +1,65 @@
 # berge-maximum
 
-Compact-codomain Berge semicontinuity, formalized in Lean with Mathlib only.
+Berge's maximum theorem for correspondences in a compact ambient decision space,
+formalized in Lean with Mathlib.
 
-Private preparation. Local qualification and its exact source identities are recorded
-in `docs/qualification.json` (historical Oct17) and `docs/private-release-qualification.json`
-when the refreshed run is sealed. Hosted CI execution is a separate result;
-no hosted pass or public release is claimed.
+For a correspondence `s : X → Set Y` and objective `f : X → Y → α`, assume:
 
-## Mathematical scope
+- `Y` is a compact topological space;
+- `s` has closed graph, nonempty values, and is lower hemicontinuous;
+- `f` is jointly continuous;
+- `α` is a conditionally complete linear order with its order topology.
 
-Berge-type semicontinuity lemmas for feasible correspondences with a closed graph
-and nonempty closed values in a compact ambient decision space.
+Then `x ↦ sSup (f x '' s x)` is continuous. The feasible maximizers form a
+nonempty, compact-valued, upper hemicontinuous correspondence. The minimum-value
+result follows by order duality. No compactness or separation assumption on `X`
+is needed. Closed fibers follow from closed graph and are not a separate hypothesis.
 
-A jointly upper-semicontinuous integrand gives an upper-semicontinuous supremum
-value; the lower-semicontinuous analogue gives lower-semicontinuous infimum value.
-The value codomain is a conditionally complete linear order, with the additional
-topological/order hypotheses shown in each theorem signature.
+## API
 
-This is a compact-ambient-codomain result. It is not the unrestricted Berge maximum
-theorem, a lower-hemicontinuity theorem, a general optimizer-selection theorem, or a
-claim that closed graph alone yields continuous maximum values. The public `graph`
-helper names the same feasible-pair set used by the theorems.
+```lean
+import BergeMaximum
+-- Opt-in checked examples:
+import BergeMaximumExamples
+```
 
-## Build and verification
+The main declarations in namespace `BergeMaximum` are:
 
-The supported tested pair is Lean 4.34.1 and Mathlib commit
-`d13f23b723b8a846827a245b89c10fc7d3f11612`. Every transitive dependency is locked in
-`lake-manifest.json`. The author's earlier libraries currently pin Lean 4.29.1;
-compatibility with that older pair has not been tested or claimed here.
+- `continuous_sSup_image_of_isClosed_graph` and
+  `continuous_sInf_image_of_isClosed_graph`: continuous maximum and minimum values.
+- `argmax_nonempty`, `isCompact_argmax`, and `upperHemicontinuous_argmax`:
+  existence, compactness, and upper hemicontinuity of feasible maximizers.
+- `upperSemicontinuous_sSup_image_of_isClosed_graph` and its infimum dual:
+  one-sided results for semicontinuous objectives, requiring only nonempty values
+  and closed graph in the compact ambient space.
+
+`graph s = {p | p.2 ∈ s p.1}` and
+`argmax s f x = {y | y ∈ s x ∧ f x y = sSup (f x '' s x)}`.
+The standalone lower-semicontinuity lemma also works with compact fibers in an
+arbitrary ambient decision space.
+
+## Examples and limits
+
+[BergeMaximumExamples.Basic](BergeMaximumExamples/Basic.lean) checks quadratic
+optimization on `[0,1]`. Its varying correspondence has feasible sets `{0,x}` and
+payoff `-(y - (2*x - 1))²`. The maximum value is continuous, its argmax sets are
+nonempty and compact, and the argmax correspondence is upper hemicontinuous.
+A checked calculation shows that zero maximizes at `x = 1/2` and does not maximize
+at `x = 1`. The feasible sets at zero and one differ.
+
+This package proves the classical theorem within a **compact ambient** decision
+space. It does not cover all compact-valued correspondences in noncompact spaces
+or prove existence of continuous optimizer selections. Closed graph alone gives
+the one-sided value theorem; the full value theorem additionally uses lower
+hemicontinuity. These are formalizations of classical results, with no novelty claim.
+Mathlib's existing fixed-compact-set continuity and hemicontinuity APIs are discussed
+in the [source comparison](docs/overlap-audit.md).
+
+## Build
+
+Supported versions: Lean **4.34.1**, Mathlib
+`d13f23b723b8a846827a245b89c10fc7d3f11612`. All dependencies are locked in
+`lake-manifest.json`.
 
 ```bash
 lake exe cache get
@@ -35,53 +67,13 @@ lake --rehash --wfail build
 python3 scripts/verify.py
 ```
 
-The verifier builds every authored module and example, re-elaborates
-each source with all 16 linters including theorem documentation, rejects warnings,
-checks declaration coverage, and audits transitive axioms of every explicit public
-name. Only `Classical.choice`, `Quot.sound` and `propext` are allowed. It rejects
-`sorry`, `admit`, explicit custom axioms and imports outside this package/Mathlib.
-Logs and receipts go into a new `verification-artifacts` directory per run; failures
-are retained. It uses Python's standard library and no private verification tooling.
+The verifier checks every authored module and example with all 16 linters and
+warnings fatal, and audits every named public declaration's transitive axioms.
+Only `Classical.choice`, `Quot.sound`, and `propext` are allowed.
+See [verification and historical qualification notes](docs/overview.md) for details.
+Local verification does not establish a hosted CI result or public release.
 
-## Usage
-
-```lean
-import BergeMaximum
--- Examples are opt-in:
-import BergeMaximumExamples
-```
-
-## Modules
-
-- `Semicontinuity`: the correspondence graph and the two value-semicontinuity theorems.
-
-## Checked example
-
-`BergeMaximumExamples.Basic` treats the parametric quadratic loss `(x - y)^2` over `y ∈ [0,1]`:
-its minimum value is lower semicontinuous and its maximum value is upper
-semicontinuous. It also checks that empty feasibility fails the explicit nonemptiness
-hypothesis.
-
-## Provenance and license
-
-Copyright 2026 Adam Benenson. Apache 2.0, matching the explicit notices retained in
-the extracted mathematical files. See [LICENSE](LICENSE), [NOTICE](NOTICE), and
-[ORIGIN.json](ORIGIN.json) for file identities and the limited extraction provenance.
-No surrounding repository or unrelated source is assigned a license here.
-
-[API and verification notes](docs/overview.md) describe the package boundary and
-qualification process. These are formalizations of the scoped mathematical results;
-no application-specific physical or empirical implication is claimed.
-
-## Private inspection update
-
-[Current overlap audit](docs/overlap-audit.md) records the source-level Mathlib/external comparison
-and limits novelty/upstream claims. The original mathematical files and pins are retained.
-Verifier hardening rejects native panics and malformed/error JSON even on exit zero, reads every
-ordinary import and fails closed on unsupported import headers, and refuses optimized Python
-that would disable assertions. Seven durable Python regression controls run before native CI;
-CI is configured to retain verification evidence using a pinned upload action. Configuration
-is not a hosted execution result. No public release or automatic upstream submission is enabled.
-
-Run the controls with `python3 -m unittest discover -s scripts -p 'test_*.py'`.
-The full verification command remains `python3 scripts/verify.py`.
+Copyright 2026 Adam Benenson; Apache 2.0. [LICENSE](LICENSE), [NOTICE](NOTICE), and
+[ORIGIN.json](ORIGIN.json) preserve the original extraction provenance. Their
+extraction hashes identify the historical extracted version; the present proofs
+and added maximum-theorem module include subsequent development.
