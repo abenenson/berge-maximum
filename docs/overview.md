@@ -92,3 +92,9 @@ python3 -m unittest discover -s scripts -p 'test_*.py'
 The full current check remains `python3 scripts/verify.py`. CI configuration retains evidence
 using a pinned upload action; a configured workflow is not a hosted execution result. No public
 release or automatic upstream submission is part of this package preparation.
+
+## Mathematical readiness qualification
+
+The [October 23 source qualification](readiness-qualification.json) records the compact-ambient
+continuous maximum and argmax theorems, varying examples and current source hashes. Earlier
+receipts remain historical. Hosted CI and final-candidate review are separate results.
