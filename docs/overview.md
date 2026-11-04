@@ -20,7 +20,9 @@ The only external package requirement is pinned Mathlib and its public dependenc
 
 ## Qualification contract
 
-A fresh authored-artifact build must pass with warnings fatal. Full lint recompiles
+A fresh authored-artifact build must pass with warnings fatal. The verifier first removes
+only the listed authored modules' Lean artifacts and trace/hash variants. It refuses linked
+artifact directories and preserves dependency caches and unrelated outputs. Full lint recompiles
 the original source contents under the same module identity, rather than linting
 only an import of cached declarations. All explicit public declaration names are
 listed in `verification.json`, checked against the source and audited transitively.
@@ -82,7 +84,7 @@ at its stated source identity. Neither historical receipt qualifies subsequent e
 The current verifier writes a fresh evidence directory per invocation and retains failures.
 
 The verifier rejects native panics, malformed/error JSON even on exit zero, unsupported import
-headers, optimized Python that disables assertions, proof holes, and custom axioms. Its seven
+headers, optimized Python that disables assertions, proof holes, and custom axioms. Its twelve
 regression controls run with:
 
 ```bash
@@ -90,11 +92,23 @@ python3 -m unittest discover -s scripts -p 'test_*.py'
 ```
 
 The full current check remains `python3 scripts/verify.py`. CI configuration retains evidence
-using a pinned upload action; a configured workflow is not a hosted execution result. No public
-release or automatic upstream submission is part of this package preparation.
+using a pinned upload action; a configured workflow is not a hosted execution result.
+Repository visibility and release records establish publication status; local qualification
+does not establish a hosted run or upstream acceptance.
 
 ## Mathematical readiness qualification
 
 The [October 23 source qualification](readiness-qualification.json) records the compact-ambient
-continuous maximum and argmax theorems, varying examples and current source hashes. Earlier
+continuous maximum and argmax theorems, varying examples and its source hashes. Earlier
 receipts remain historical. Hosted CI and final-candidate review are separate results.
+
+The [November 4 release qualification](release-qualification.json) records a fresh warning-fatal
+build of all five authored modules, all 16 linters per source, and the complete 29-name transitive
+axiom audit. It binds the Lean sources, verifier, manifest, toolchain and package pins by SHA-256.
+Its [retained logs](release-logs/) include the exact build, source lint, axiom audit, twelve isolated
+Python controls, and resource receipts. The build log explicitly records all five modules rebuilt;
+the cleanup list is empty because an earlier synthetic regression had already removed the outputs.
+That regression now uses a temporary repository fixture. Historical qualification records remain
+unchanged. The source/configuration inputs remained unchanged when the final Python controls ran.
+Independent source review found no blocking issue in the theorem scope, examples, provenance,
+verifier changes or the retained source/build/lint/axiom evidence.
