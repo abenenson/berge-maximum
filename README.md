@@ -55,6 +55,8 @@ hemicontinuity. These are formalizations of classical results, with no novelty c
 Mathlib's existing fixed-compact-set continuity and hemicontinuity APIs are discussed
 in the [source comparison](docs/overlap-audit.md).
 
+The classical reference is Claude Berge, *Topological Spaces*, Oliver and Boyd, 1963.
+
 ## Build
 
 Supported versions: Lean **4.34.1**, Mathlib
@@ -64,12 +66,14 @@ Supported versions: Lean **4.34.1**, Mathlib
 ```bash
 lake exe cache get
 lake --rehash --wfail build
+python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/verify.py
 ```
 
 The verifier checks every authored module and example with all 16 linters and
 warnings fatal, and audits every named public declaration's transitive axioms.
 Only `Classical.choice`, `Quot.sound`, and `propext` are allowed.
+It removes authored Lean build artifacts before the exact build and retains dependency caches.
 See [verification and historical qualification notes](docs/overview.md) for details.
 Local verification does not establish a hosted CI result or public release.
 

@@ -1,0 +1,89 @@
+{
+  "phase": "berge-verify-2",
+  "command": [
+    "python3",
+    "scripts/verify.py",
+    "--evidence-dir",
+    "verification-artifacts/release-final-20261104"
+  ],
+  "cwd": "/workspace/verification-open-source/berge-maximum",
+  "disk_floor_bytes": 8589934592,
+  "candidate_cap_bytes": 21474836480,
+  "cache_cap_bytes": 19327352832,
+  "cache_roots": [
+    "/workspace/verification-open-source/finite-markov-kernels/.lake",
+    "/workspace/verification-open-source/measure-discrimination/.lake",
+    "/workspace/verification-open-source/berge-maximum/.lake",
+    "/workspace/verification-open-source/finite-relative-entropy/.lake",
+    "/workspace/verification-open-source/finite-causal-control/.lake",
+    "/workspace/verification-open-source/fisher-information/.lake"
+  ],
+  "accounting_root": "/workspace/verification-open-source",
+  "accounting_scope": "actual-task-repo",
+  "before": {
+    "available_overlay_bytes": 31929110528,
+    "candidate_apparent_file_bytes": 8987203,
+    "cache_apparent_file_bytes": 7534562
+  },
+  "samples": [
+    {
+      "elapsed_seconds": 5.095829944999423,
+      "available_overlay_bytes": 31929016320,
+      "candidate_apparent_file_bytes": 9058740,
+      "cache_apparent_file_bytes": 7532852
+    },
+    {
+      "elapsed_seconds": 10.186647526999877,
+      "available_overlay_bytes": 31928672256,
+      "candidate_apparent_file_bytes": 9357761,
+      "cache_apparent_file_bytes": 7831873
+    },
+    {
+      "elapsed_seconds": 15.279818518999491,
+      "available_overlay_bytes": 31928385536,
+      "candidate_apparent_file_bytes": 9598821,
+      "cache_apparent_file_bytes": 8066668
+    },
+    {
+      "elapsed_seconds": 20.36818317199959,
+      "available_overlay_bytes": 31928348672,
+      "candidate_apparent_file_bytes": 9615595,
+      "cache_apparent_file_bytes": 8066668
+    },
+    {
+      "elapsed_seconds": 25.465005598999596,
+      "available_overlay_bytes": 31928320000,
+      "candidate_apparent_file_bytes": 9625072,
+      "cache_apparent_file_bytes": 8066668
+    }
+  ],
+  "started_utc": "2026-11-04T05:22:23Z",
+  "resource_guard_command": [
+    "/workspace/.cloud-tools/mcp-v2-venv/bin/python",
+    "/workspace/the mathematical library/mathematics/lean/docs/operations/tooling/cloud/runtime/resource_guard.py",
+    "--seconds",
+    "900",
+    "--gib",
+    "16",
+    "--receipt",
+    "/workspace/verification-open-source/release-evidence/resources/berge-verify-2-resources.json",
+    "--",
+    "python3",
+    "scripts/verify.py",
+    "--evidence-dir",
+    "verification-artifacts/release-final-20261104"
+  ],
+  "reason": "completed",
+  "exit_code": 0,
+  "elapsed_seconds": 28.525211619999936,
+  "after": {
+    "available_overlay_bytes": 31928291328,
+    "candidate_apparent_file_bytes": 9643373,
+    "cache_apparent_file_bytes": 8066668
+  },
+  "peak_candidate_apparent_file_bytes": 9643373,
+  "peak_cache_apparent_file_bytes": 8066668,
+  "minimum_available_overlay_bytes": 31928291328,
+  "final_sample_included_in_extrema": true,
+  "final_bounds_problem": null
+}

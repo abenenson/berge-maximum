@@ -1,0 +1,12 @@
+{
+  "history_policy": "One rewritten commit per original commit, retaining author/committer dates, parent topology and development layers. Only identifying metadata and dependency commit identifiers were normalized.",
+  "proof_commands_unchanged": true,
+  "verification_scope": "Historical proof build and lint records retain their original scope. Python regression checks and source comparisons validate the publication cleanup; no fresh Lean build is claimed.",
+  "source_sha256": {
+    "BergeMaximum.lean": "8a416d0dab601cd5b1febe475b8d561702b20fef5cea8a651eaefbd2c8538882",
+    "BergeMaximum/Maximum.lean": "19981867e8a5d814465cbb538500eebf77bb9a9f8eb55cfad2728990b22ed43d",
+    "BergeMaximum/Semicontinuity.lean": "aa5d9d44f578a0b431fd042f36dc47f4b458b10ddd96d2687a81fbacfe4b5125",
+    "BergeMaximumExamples.lean": "56ebf883c16345f84eccb77878e7167996ac5f80c1c22913401061de5514f565",
+    "BergeMaximumExamples/Basic.lean": "fe35449236d0dc87a5a46003d043e89c3dd333bf0fa0fb341b46e5c6f31aa099"
+  }
+}

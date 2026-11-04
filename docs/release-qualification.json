@@ -1,0 +1,329 @@
+{
+  "status": "passed",
+  "stages": [
+    {
+      "name": "compiler-version",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "exact-build",
+      "command": [
+        "lake",
+        "--rehash",
+        "--wfail",
+        "build",
+        "+BergeMaximum.Semicontinuity:olean",
+        "+BergeMaximum.Maximum:olean",
+        "+BergeMaximum:olean",
+        "+BergeMaximumExamples.Basic:olean",
+        "+BergeMaximumExamples:olean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximum-Semicontinuity.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "--root=/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources/BergeMaximum/Semicontinuity.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximum-Maximum.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "--root=/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources/BergeMaximum/Maximum.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximum.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "--root=/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources/BergeMaximum.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximumExamples-Basic.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "--root=/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources/BergeMaximumExamples/Basic.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "lint-BergeMaximumExamples.lean",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "--root=/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/lint-sources/BergeMaximumExamples.lean"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "axioms",
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "-j2",
+        "--json",
+        "/workspace/verification-open-source/berge-maximum/verification-artifacts/release-final-20261104/axioms.lean"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "BergeMaximum/Semicontinuity.lean": "aa5d9d44f578a0b431fd042f36dc47f4b458b10ddd96d2687a81fbacfe4b5125",
+    "BergeMaximum/Maximum.lean": "19981867e8a5d814465cbb538500eebf77bb9a9f8eb55cfad2728990b22ed43d",
+    "BergeMaximum.lean": "8a416d0dab601cd5b1febe475b8d561702b20fef5cea8a651eaefbd2c8538882",
+    "BergeMaximumExamples/Basic.lean": "fe35449236d0dc87a5a46003d043e89c3dd333bf0fa0fb341b46e5c6f31aa099",
+    "BergeMaximumExamples.lean": "56ebf883c16345f84eccb77878e7167996ac5f80c1c22913401061de5514f565"
+  },
+  "axioms": {
+    "BergeMaximum.graph": [],
+    "BergeMaximum.upperSemicontinuous_sSup_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.lowerSemicontinuous_sInf_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.isClosed_fiber_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.upperHemicontinuous_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.lowerSemicontinuous_sSup_image_of_lowerHemicontinuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.continuous_sSup_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.continuous_sInf_image_of_isClosed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.argmax": [],
+    "BergeMaximum.argmax_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.isClosed_graph_argmax": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.upperHemicontinuous_argmax": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.isCompact_argmax": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.Decision": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.quadratic_minimum_lsc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.quadratic_maximum_usc": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.zeroDecision": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingDecisions": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingDecisions_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingDecisions_closed_graph": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingDecisions_lowerHemicontinuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingDecisions_vary": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.movingPayoff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.moving_quadratic_maximum_continuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.moving_quadratic_argmax_upperHemicontinuous": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.moving_quadratic_argmax_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.moving_quadratic_argmax_compact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.moving_quadratic_argmax_switches": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "BergeMaximum.Examples.empty_decisions_fail_nonempty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "scope": "Local exact-source qualification. Hosted CI, repository visibility, and upstream acceptance are separate outcomes.",
+  "compiler_version": "Lean (version 4.34.1, x86_64-unknown-linux-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "dependency_revisions": {
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204"
+  },
+  "removed_authored_artifacts": [],
+  "full_linter_count": 16,
+  "named_declaration_count": 29,
+  "recorded_utc": "2026-11-04T05:25:56.405254+00:00",
+  "qualification_started_utc": "2026-11-04T05:22:23Z",
+  "base_commit": "bd2413cb62a56be700b361981b3e43117b55d058",
+  "qualified_identity": "Exact input SHA-256 values below; base commit is historical context, not the modified source identity.",
+  "input_sha256": {
+    "lean-toolchain": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b",
+    "lakefile.lean": "94c64500185c828a09c8fcb3dc1428e454ea60a572069b3aff4c4b4bbf4204d7",
+    "lake-manifest.json": "cd9aee9314ded1ad8c9640a972ce48961a658d1a65cf35f65085309e25da1e57",
+    "verification.json": "31705df7502c4ed80094d8782af9ea31950b3f39825696bb97bc332fbd0c0740",
+    "scripts/verify.py": "de3f782164086d1afd5287590913bf81503dd7dda1babed1a68bb80a8f5abbed",
+    "scripts/test_verify.py": "dffd8071fd15e7f7164cbac5c0a0f74514883708df1362a3591d53d5dccfb95c",
+    "BergeMaximum/Semicontinuity.lean": "aa5d9d44f578a0b431fd042f36dc47f4b458b10ddd96d2687a81fbacfe4b5125",
+    "BergeMaximum/Maximum.lean": "19981867e8a5d814465cbb538500eebf77bb9a9f8eb55cfad2728990b22ed43d",
+    "BergeMaximum.lean": "8a416d0dab601cd5b1febe475b8d561702b20fef5cea8a651eaefbd2c8538882",
+    "BergeMaximumExamples/Basic.lean": "fe35449236d0dc87a5a46003d043e89c3dd333bf0fa0fb341b46e5c6f31aa099",
+    "BergeMaximumExamples.lean": "56ebf883c16345f84eccb77878e7167996ac5f80c1c22913401061de5514f565"
+  },
+  "approved_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "verifier_controls": {
+    "status": "passed",
+    "methods": 12,
+    "log": "release-logs/verifier-controls.log",
+    "scope": "Final isolated-fixture controls, run after the Lean replay; production verifier and Lean inputs unchanged."
+  },
+  "authored_build_evidence": "All five authored modules are explicitly Built in release-logs/exact-build.log. The cleanup removed no artifacts because the earlier regression control had already removed them; that control now uses an isolated temporary fixture.",
+  "raw_qualification_sha256": "e02c894281972bb8db1839929b8aac281fdda16ee3d0965cdd1e9179aca9f5e9",
+  "retained_log_sha256": {
+    "release-logs/axioms.log": "224895b0cfa9e48b26d2d1a695e096920a3d5ddd154d90f8586bc0e3914af1d9",
+    "release-logs/compiler-version.log": "355a9a028f81641782d75d6e6b58dec70f29d2f61238a9e271690259d9bf5680",
+    "release-logs/disk.json": "696112f804853f85b22e59715175e71354aecc666d4245dbdc96b840c9053b4d",
+    "release-logs/exact-build.log": "ba9c08bc7d728cb156bb5ce21f7c64a908ae05828b3556cb58c9ccdfb6be07f6",
+    "release-logs/lint-BergeMaximum-Maximum.lean.log": "e474545f719e4610a5186ae2e2e711a86924c9e81b1fe1029304809bb0812085",
+    "release-logs/lint-BergeMaximum-Semicontinuity.lean.log": "a58331ee485ecbd4355fd95c8ff543b61bd307bce92779e075fa35fe8ec982ef",
+    "release-logs/lint-BergeMaximum.lean.log": "657e7facc0e4fb497001310e532bdc9c5c58832fdcf6ae333de0afa97695af8e",
+    "release-logs/lint-BergeMaximumExamples-Basic.lean.log": "148d49d2b709484ec5e29053cf3f91799453b742efafa9d01a4a1653d321a134",
+    "release-logs/lint-BergeMaximumExamples.lean.log": "05ad22d594b53bad81401eaa44906499ffb5f05fe1881f3b2556fb59d665493b",
+    "release-logs/qualification.json": "e02c894281972bb8db1839929b8aac281fdda16ee3d0965cdd1e9179aca9f5e9",
+    "release-logs/resources.json": "afd4a3df4082d9babf116a9ab6435b8dab82efdebf07023673629e56278a7c0e",
+    "release-logs/verifier-controls.log": "0aa01d3364abf4baa7909cf6b1df9338e12c8ccc3e720d3726db105468da87e6"
+  },
+  "resource_receipts": {
+    "resources": "release-logs/resources.json",
+    "disk": "release-logs/disk.json",
+    "seconds_limit": 900,
+    "memory_gib": 16,
+    "cpu_count": 2,
+    "exit_code": 0,
+    "surviving_non_zombie_pids": []
+  },
+  "historical_qualification": "Earlier qualification receipts and logs remain unchanged.",
+  "independent_source_review": {
+    "status": "passed",
+    "scope": "Theorem hypotheses and claims, moving-feasibility and optimizer-switch examples, historical extraction provenance, verifier changes, source hashes, and build/lint/axiom evidence.",
+    "findings": "No blocking findings; independent read-only review of the recorded source and receipts."
+  },
+  "public_record_note": "Worker locations and origin metadata were normalized for publication. These retained records describe historical verification runs; normalization is not a new Lean build."
+}

@@ -16,6 +16,17 @@ and the argmax correspondence has nonempty compact values and is upper hemiconti
 The decision space is compact; no compactness or separation assumption is imposed on the
 parameter space. This does not cover arbitrary compact-valued correspondences in a
 noncompact ambient space.
+
+## Main results
+
+- `continuous_sSup_image_of_isClosed_graph`: continuous maximum values.
+- `continuous_sInf_image_of_isClosed_graph`: continuous minimum values by order duality.
+- `argmax_nonempty`, `isCompact_argmax`: nonempty compact sets of feasible maximizers.
+- `upperHemicontinuous_argmax`: upper hemicontinuity of the optimizer correspondence.
+
+## References
+
+Claude Berge, *Topological Spaces*, Oliver and Boyd, 1963.
 -/
 
 namespace BergeMaximum
