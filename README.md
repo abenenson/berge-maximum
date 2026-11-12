@@ -78,6 +78,6 @@ See [verification and historical qualification notes](docs/overview.md) for deta
 Local verification does not establish a hosted CI result or public release.
 
 Copyright 2026 Adam Benenson; Apache 2.0. [LICENSE](LICENSE), [NOTICE](NOTICE), and
-[ORIGIN.json](ORIGIN.json) preserve the original extraction provenance. Their
-extraction hashes identify the historical extracted version; the present proofs
+[ORIGIN.json](ORIGIN.json) record licensing and the initial public file inventory.
+The inventory hashes identify the initial public adaptation; the present proofs
 and added maximum-theorem module include subsequent development.
