@@ -1,5 +1,7 @@
 # berge-maximum
 
+[![Lean verification](https://github.com/abenenson/berge-maximum/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/abenenson/berge-maximum/actions/workflows/lean.yml)
+
 Berge's maximum theorem for correspondences in a compact ambient decision space,
 formalized in Lean with Mathlib.
 
