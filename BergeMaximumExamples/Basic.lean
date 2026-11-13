@@ -3,8 +3,10 @@ Copyright (c) 2026 Adam Benenson. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Adam Benenson
 -/
-import BergeMaximum
-import Mathlib.Topology.Instances.Real.Lemmas
+module
+
+public import BergeMaximum
+public import Mathlib.Topology.Instances.Real.Lemmas
 
 /-!
 # Parametric quadratic optimization on a compact interval
@@ -12,6 +14,8 @@ import Mathlib.Topology.Instances.Real.Lemmas
 Quadratic optimization and a genuinely varying two-point feasible correspondence illustrate
 the semicontinuity and full compact-ambient maximum theorems.
 -/
+
+@[expose] public section
 
 namespace BergeMaximum.Examples
 

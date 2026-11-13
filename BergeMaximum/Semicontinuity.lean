@@ -3,8 +3,10 @@ Copyright (c) 2026 Adam Benenson. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Adam Benenson
 -/
-import Mathlib.Topology.Semicontinuity.Basic
-import Mathlib.Topology.Maps.Proper.Basic
+module
+
+public import Mathlib.Topology.Semicontinuity.Basic
+public import Mathlib.Topology.Maps.Proper.Basic
 
 /-!
 # Berge maximum theorem (compact codomain, semicontinuity)
@@ -24,6 +26,8 @@ super/sub-level sets are projections of closed subsets of `X × Y`.
 - `BergeMaximum.upperSemicontinuous_sSup_image_of_isClosed_graph`
 - `BergeMaximum.lowerSemicontinuous_sInf_image_of_isClosed_graph`
 -/
+
+@[expose] public section
 
 namespace BergeMaximum
 

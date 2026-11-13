@@ -3,10 +3,14 @@ Copyright (c) 2026 Adam Benenson. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Adam Benenson
 -/
-import BergeMaximum.Maximum
+module
+
+public import BergeMaximum.Maximum
 
 /-!
 # BergeMaximum
 
 Public imports for the standalone library. Examples remain opt-in.
 -/
+
+@[expose] public section

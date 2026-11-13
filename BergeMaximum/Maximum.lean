@@ -3,8 +3,10 @@ Copyright (c) 2026 Adam Benenson. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Adam Benenson
 -/
-import BergeMaximum.Semicontinuity
-import Mathlib.Topology.Semicontinuity.Hemicontinuity
+module
+
+public import BergeMaximum.Semicontinuity
+public import Mathlib.Topology.Semicontinuity.Hemicontinuity
 
 /-!
 # Berge's maximum theorem in a compact ambient decision space
@@ -28,6 +30,8 @@ noncompact ambient space.
 
 Claude Berge, *Topological Spaces*, Oliver and Boyd, 1963.
 -/
+
+@[expose] public section
 
 namespace BergeMaximum
 
