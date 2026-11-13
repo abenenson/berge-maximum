@@ -61,12 +61,12 @@ The classical reference is Claude Berge, *Topological Spaces*, Oliver and Boyd, 
 
 ## Build
 
-Supported versions: Lean **4.34.1**, Mathlib
-`d13f23b723b8a846827a245b89c10fc7d3f11612`. All dependencies are locked in
+Supported versions: Lean **4.35.0**, Mathlib
+`56a005855ea17e0b0958f73ec801ae140b0a1679`. All dependencies are locked in
 `lake-manifest.json`.
 
 ```bash
-lake exe cache get
+python3 scripts/fetch_mathlib_cache.py
 lake --rehash --wfail build
 python3 -m unittest discover -s scripts -p 'test_*.py'
 python3 scripts/verify.py
@@ -83,3 +83,5 @@ Copyright 2026 Adam Benenson; Apache 2.0. [LICENSE](LICENSE), [NOTICE](NOTICE), 
 [ORIGIN.json](ORIGIN.json) record licensing and the initial public file inventory.
 The inventory hashes identify the initial public adaptation; the present proofs
 and added maximum-theorem module include subsequent development.
+
+The fresh [compatibility qualification](docs/compatibility-qualification.json) records this pair.
